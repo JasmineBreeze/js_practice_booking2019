@@ -53,6 +53,10 @@ else {
 function reverseWord(word) {
   if (word === undefined) throw new Error("word is required");
   // Add your code here!
+  var SplitString = word.split("");
+  var ReverseString = SplitString.reverse();
+  var Join = ReverseString.join('');
+  return Join
 }
 
 function reverseAllWords(words) {
