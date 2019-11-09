@@ -11,7 +11,7 @@ const {
   simpleFizzBuzz
 } = require("../challenges/week1");
 
-describe.only("capitalize", () => {
+describe("capitalize", () => {
   test("returns a capitalized string", () => {
     expect(capitalize("hello")).toBe("Hello");
     expect(capitalize("the quick fox")).toBe("The quick fox");

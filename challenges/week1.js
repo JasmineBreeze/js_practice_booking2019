@@ -11,6 +11,10 @@ function generateInitials(firstName, lastName) {
   if (firstName === undefined) throw new Error("firstName is required");
   if (lastName === undefined) throw new Error("lastName is required");
   // Add your code here!
+  var FirstInitial = firstName[0];
+  var LastInitial = lastName[0];
+  var Initials = FirstInitial + "." + LastInitial;
+  return Initials
 }
 
 function addVAT(originalPrice, vatRate) {
