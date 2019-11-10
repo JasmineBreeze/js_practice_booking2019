@@ -29,7 +29,7 @@ describe("generateInitials", () => {
   });
 });
 
-describe.only("addVAT", () => {
+describe("addVAT", () => {
   test("adds a VAT of 20% to a price of 100", () => {
     expect(addVAT(100, 20)).toBe(120);
   });
@@ -75,7 +75,7 @@ describe("getMiddleCharacter", () => {
   });
 });
 
-describe.only("reverseWord", () => {
+describe("reverseWord", () => {
   test("returns the provided word, reversed", () => {
     expect(reverseWord("foo")).toBe("oof");
   });
@@ -135,7 +135,7 @@ describe("getMeanScore", () => {
   });
 });
 
-describe("simpleFizzBuzz", () => {
+describe.only("simpleFizzBuzz", () => {
   test("returns 'fizz' if the number is divisible by 3", () => {
     expect(simpleFizzBuzz(3)).toBe("fizz");
   });

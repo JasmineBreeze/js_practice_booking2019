@@ -61,23 +61,56 @@ function reverseWord(word) {
 
 function reverseAllWords(words) {
   if (words === undefined) throw new Error("words is required");
-  // Add your code here!
+  // Add your code here
+  for ( let i =0; i < words.length; i++){
+    const AllWords = words[i];
+    var ReverseString = AllWords.reverse();
+    var Join = ReverseString.join('');
+    return Join
+  }
 }
 
 function countLinuxUsers(users) {
   if (users === undefined) throw new Error("users is required");
   // Add your code here!
+  let CountUsers = 0;
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].type === "Linux") {
+      CountUsers++
+    }
+  }
+
+  return CountUsers;
 }
+
 
 function getMeanScore(scores) {
   if (scores === undefined) throw new Error("scores is required");
-  // Add your code here!
+  var sum = 0;
+  var Total = sum +=scores;
+  var LengthArray = scores.length;
+  return Total/LengthArray
 }
+
 
 function simpleFizzBuzz(n) {
   if (n === undefined) throw new Error("n is required");
   // Add your code here!
-}
+
+  if (n % 3 === 0 && n % 5 === 0) {
+    return "fizzbuzz"
+  }
+  else if (n % 3 === 0) {
+    return "fizz"
+  }
+  else if (n % 5 === 0){
+    return "buzz"
+  }
+  else return n
+  }
+  
+
+
 
 module.exports = {
   capitalize,
