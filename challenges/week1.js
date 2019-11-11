@@ -22,18 +22,15 @@ function addVAT(originalPrice, vatRate) {
   if (vatRate === undefined) throw new Error("vatRate is required");
   // Add your code here!
   var Calc = (originalPrice / 100 * vatRate) + originalPrice;
-  var Decimals = Calc.toFixed(2);
-  var num = Decimals.toString(); 
-  var nums = num.slice(0, (num.indexOf("."))+3); 
-  var Number1 = Number(nums)
-  return Number1
+  var Decimals = Math.round(Calc * 100) / 100;
+  return Decimals
 }
 
 function getSalePrice(originalPrice, reduction) {
   if (originalPrice === undefined) throw new Error("originalPrice is required");
   if (reduction === undefined) throw new Error("reduction is required");
   // Add your code here!
-    return originalPrice - (originalPrice / 100 * reduction).toFixed(2);
+  return originalPrice - (originalPrice / 100 * reduction).toFixed(2);
 
 }
 
@@ -41,14 +38,14 @@ function getMiddleCharacter(str) {
   if (str === undefined) throw new Error("str is required");
   // Add your code here!
   var length = str.length;
-  var middle = Math.floor(length/2);
+  var middle = Math.floor(length / 2);
 
   if (length % 2 === 0) {
-  return  str[middle - 1] + str[middle]
-}
-else {
-  return str[middle]
-}
+    return str[middle - 1] + str[middle]
+  }
+  else {
+    return str[middle]
+  }
 }
 function reverseWord(word) {
   if (word === undefined) throw new Error("word is required");
@@ -62,7 +59,7 @@ function reverseWord(word) {
 function reverseAllWords(words) {
   if (words === undefined) throw new Error("words is required");
   // Add your code here
-  for ( let i =0; i < words.length; i++){
+  for (let i = 0; i < words.length; i++) {
     const AllWords = words[i];
     var ReverseString = AllWords.reverse();
     var Join = ReverseString.join('');
@@ -87,9 +84,13 @@ function countLinuxUsers(users) {
 function getMeanScore(scores) {
   if (scores === undefined) throw new Error("scores is required");
   var sum = 0;
-  var Total = sum +=scores;
-  var LengthArray = scores.length;
-  return Total/LengthArray
+  var length = scores.length;
+  for (let i = 0; i < scores.length; i++) {
+    sum += scores[i];
+  }
+  var answer = sum / length;
+  var answerFinal = Math.round(answer * 100) / 100;
+  return answerFinal
 }
 
 
@@ -103,12 +104,12 @@ function simpleFizzBuzz(n) {
   else if (n % 3 === 0) {
     return "fizz"
   }
-  else if (n % 5 === 0){
+  else if (n % 5 === 0) {
     return "buzz"
   }
   else return n
-  }
-  
+}
+
 
 
 
