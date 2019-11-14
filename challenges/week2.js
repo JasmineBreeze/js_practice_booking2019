@@ -43,8 +43,19 @@ return Sheep
 
 function hasMPostCode(person) {
   if (person === undefined) throw new Error("person is required");
-  // Your code here!
+  if (person.address.postCode[0] === "M") {
+    return true
 }
+else if (person.address.postCode[0] !== "M"){
+  return false
+}
+else if (person.address.postCode[0] === "M" && person.address.city === "Manchester"){
+  return false
+}
+else return true
+  }
+
+
 
 module.exports = {
   getFillings,

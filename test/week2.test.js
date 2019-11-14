@@ -73,7 +73,7 @@ describe("getBusNumbers", () => {
   });
 });
 
-describe.only("countSheep", () => {
+describe("countSheep", () => {
   test("returns 0 if there are 0 sheep in the array", () => {
     const arr = ["dog", "badger", "dog", "dog", "chicken"];
     expect(countSheep(arr)).toBe(0);
@@ -105,7 +105,7 @@ describe.only("countSheep", () => {
   });
 });
 
-describe("hasMPostCode", () => {
+describe.only("hasMPostCode", () => {
   test("returns true if the person has a postcode starting with M", () => {
     const person = {
       name: "Mohammed",
@@ -132,7 +132,7 @@ describe("hasMPostCode", () => {
     expect(hasMPostCode(person)).toBe(false);
   });
 
-  test("returns false if the postcode starts with M but is not for Manchester", () => {
+  test("returns false if the postcode starts with M but is not from Manchester", () => {
     const person = {
       name: "Jahin",
       age: 55,
