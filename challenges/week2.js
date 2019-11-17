@@ -49,7 +49,7 @@ function hasMPostCode(person) {
 else if (person.address.postCode[0] !== "M"){
   return false
 }
-else if (person.address.postCode[0] === "M" && person.address.city === "Manchester"){
+else if (person.address.postCode[0] === "M" && person.address.city != "Manchester"){
   return false
 }
 else return true

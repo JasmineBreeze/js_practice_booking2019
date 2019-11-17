@@ -56,10 +56,13 @@ function reverseWord(word) {
 function reverseAllWords(words) {
   if (words === undefined) throw new Error("words is required");
   // Add your code here
+  const ReverseWords = []
   for (let i=0; i<words.length; i++){
   
-  return words[i].split("").reverse().join("");
+  const RV =  words[i].split("").reverse().join("");
+  ReverseWords.push(RV);
   }
+  return ReverseWords
 }
 
 function countLinuxUsers(users) {
