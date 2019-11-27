@@ -14,15 +14,20 @@ function findNamesBeginningWith(names, char) {
   if (!names) throw new Error("names is required");
   if (!char) throw new Error("char is required");
   const NamesChar = names.filter(function (n, c) {
-    return n[0] === c;
+    return n.startsWith(toString(c));
   });
   return NamesChar
 }
 
 function findVerbs(words) {
   if (!words) throw new Error("words is required");
-  
+  const Verbs = words.filter(function (n) {
+    return n.startsWith("to ");
+  });
+  return Verbs
 }
+
+
 
 function getIntegers(nums) {
   if (!nums) throw new Error("nums is required");
