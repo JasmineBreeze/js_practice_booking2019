@@ -52,7 +52,15 @@ function getCities(users) {
 
 function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
-  // Your code here
+       let sqroot = [];
+       for(let i = 0; i< nums.length; i ++) {
+         let array = nums[i];
+         let sqroota = Math.sqrt(array);
+         let rounded = Math.round(sqroota * 100) / 100;
+         sqroot.push(rounded);
+       }
+       return sqroot
+  
 }
 
 function findSentencesContaining(sentences, str) {
