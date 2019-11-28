@@ -68,9 +68,9 @@ function findSentencesContaining(sentences, str) {
 
   let sen = [];
   for (let i=0; i< sentences.length; i++){
-    const s = sentences[i];
-    if(s.toLowerCase().includes(str)) {
-      sen.push(s);
+  
+    if(sentences[i].toLowerCase().includes(str)) {
+      sen.push(sentences[i]);
     }
   }
   return sen
@@ -81,7 +81,9 @@ function findSentencesContaining(sentences, str) {
 
 function getLongestSides(triangles) {
   if (!triangles) throw new Error("triangles is required");
-  // Your code here
+  return triangles.map(function(subarray){
+    return Math.max.apply(null, subarray);
+  });
 }
 
 module.exports = {

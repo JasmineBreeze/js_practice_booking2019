@@ -118,8 +118,8 @@ describe("getSquareRoots", () => {
   });
 });
 
-describe.only("findSentencesContaining", () => {
-  const sentences = [
+describe("findSentencesContaining", () => {
+  const sentencesAboutPackageJson = [
     "You should specify a license for your package so that people know how they are permitted to use it",
     "The main field is a module ID that is the primary entry point to your program",
     "The repository field should specify the place where your code lives",
@@ -134,19 +134,19 @@ describe.only("findSentencesContaining", () => {
 
   test("returns only the sentences containing the specified string", () => {
     expect(
-      findSentencesContaining(sentences, "license")
+      findSentencesContaining(sentencesAboutPackageJson, "license")
     ).toEqual([
       "You should specify a license for your package so that people know how they are permitted to use it"
     ]);
 
     expect(
-      findSentencesContaining(sentences, "binary")
+      findSentencesContaining(sentencesAboutPackageJson, "binary")
     ).toEqual([]);
   });
 
   test("it should not be case sensitive", () => {
     expect(
-      findSentencesContaining(sentences, "dependencies")
+      findSentencesContaining(sentencesAboutPackageJson, "dependencies")
     ).toEqual([
       "Dependencies are specified in a simple object that maps a package name to a version range",
       "It's best to map these additional items such as a test framework, which is not needed for running your project, in a devDependencies object"
@@ -154,7 +154,7 @@ describe.only("findSentencesContaining", () => {
   });
 });
 
-describe("getLongestSides", () => {
+describe.only("getLongestSides", () => {
   test("returns the longest side of each set of triangle data", () => {
     const data = [[6, 7, 10], [9, 3, 6], [6, 3, 5], [6, 13, 12], [7, 12, 8]];
     expect(getLongestSides(data)).toEqual([10, 9, 6, 13, 12]);
