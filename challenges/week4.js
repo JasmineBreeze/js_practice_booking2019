@@ -54,8 +54,7 @@ function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
        let sqroot = [];
        for(let i = 0; i< nums.length; i ++) {
-         let array = nums[i];
-         let sqroota = Math.sqrt(array);
+         let sqroota = Math.sqrt(nums[i]);
          let rounded = Math.round(sqroota * 100) / 100;
          sqroot.push(rounded);
        }
@@ -66,8 +65,19 @@ function getSquareRoots(nums) {
 function findSentencesContaining(sentences, str) {
   if (!sentences) throw new Error("sentences is required");
   if (!str) throw new Error("str is required");
-  // Your code here
+
+  let sen = [];
+  for (let i=0; i< sentences.length; i++){
+    const s = sentences[i];
+    if(s.toLowerCase().includes(str)) {
+      sen.push(s);
+    }
+  }
+  return sen
+  
 }
+  
+
 
 function getLongestSides(triangles) {
   if (!triangles) throw new Error("triangles is required");

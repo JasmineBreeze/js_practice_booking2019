@@ -111,15 +111,15 @@ describe("getCities", () => {
   });
 });
 
-describe.only("getSquareRoots", () => {
+describe("getSquareRoots", () => {
   test("gets the square root of each number to 2 decimal places", () => {
     const nums = [36, 77, 12, 355, 92, 5];
     expect(getSquareRoots(nums)).toEqual([6, 8.77, 3.46, 18.84, 9.59, 2.24]);
   });
 });
 
-describe("findSentencesContaining", () => {
-  const sentencesAboutPackageJson = [
+describe.only("findSentencesContaining", () => {
+  const sentences = [
     "You should specify a license for your package so that people know how they are permitted to use it",
     "The main field is a module ID that is the primary entry point to your program",
     "The repository field should specify the place where your code lives",
@@ -134,19 +134,19 @@ describe("findSentencesContaining", () => {
 
   test("returns only the sentences containing the specified string", () => {
     expect(
-      findSentencesContaining(sentencesAboutPackageJson, "license")
+      findSentencesContaining(sentences, "license")
     ).toEqual([
       "You should specify a license for your package so that people know how they are permitted to use it"
     ]);
 
     expect(
-      findSentencesContaining(sentencesAboutPackageJson, "binary")
+      findSentencesContaining(sentences, "binary")
     ).toEqual([]);
   });
 
   test("it should not be case sensitive", () => {
     expect(
-      findSentencesContaining(sentencesAboutPackageJson, "dependencies")
+      findSentencesContaining(sentences, "dependencies")
     ).toEqual([
       "Dependencies are specified in a simple object that maps a package name to a version range",
       "It's best to map these additional items such as a test framework, which is not needed for running your project, in a devDependencies object"
