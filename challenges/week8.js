@@ -49,8 +49,6 @@ const arrShift = arr => {
   }
 
   return arr;
-
-
 };
 
 const findNeedle = (haystack, searchTerm) => {
