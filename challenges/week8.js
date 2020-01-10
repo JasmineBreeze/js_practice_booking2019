@@ -13,10 +13,9 @@ const findNextNumber = (nums, n) => {
 
 const count1sand0s = str => {
   if (str === undefined) throw new Error("str is required");
-  
   var count = {};
-  str.split('').forEach(function(s) {
-     count[s] ? count[s]++ : count[s] = 1;
+  str.split('').forEach(function (s) {
+    count[s] ? count[s]++ : count[s] = 1;
   });
   return count;
 };
@@ -24,9 +23,7 @@ const count1sand0s = str => {
 
 const reverseNumber = n => {
   if (n === undefined) throw new Error("n is required");
-  if (Math.sign(n) === 1)
     return parseInt(n.toString().split('').reverse().join(''));
-  else return -1 * parseInt(n.toString().split('').reverse().join(''));
 };
 
 
