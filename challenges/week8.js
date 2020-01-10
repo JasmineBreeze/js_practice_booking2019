@@ -23,16 +23,18 @@ const count1sand0s = str => {
 
 const reverseNumber = n => {
   if (n === undefined) throw new Error("n is required");
-    return parseInt(n.toString().split('').reverse().join(''));
+  return parseInt(n.toString().split('').reverse().join(''));
 };
 
 
 const sumArrays = arrs => {
   if (arrs === undefined) throw new Error("arrs is required");
-  arrs.map(item => {
-    return item.reduce((a, b) => a + b);
-  })
-};
+  var newArr = arrs.toString().split(',').map(Number);
+  const add = (a, b) =>
+    a + b
+  const sum = newArr.reduce(add)
+  return sum
+}
 
 const arrShift = arr => {
   if (arr === undefined) throw new Error("arr is required");
