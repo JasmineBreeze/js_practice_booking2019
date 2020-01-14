@@ -6,6 +6,13 @@
  */
 const sumMultiples = arr => {
   if (arr === undefined) throw new Error("arr is required");
+  let total = 0;
+  arr.forEach(n => {
+    if (n % 5 === 0 || n % 3 === 0) {
+      total += n
+    }
+  });
+  return total;
 };
 
 /**
@@ -15,8 +22,13 @@ const sumMultiples = arr => {
  */
 const isValidDNA = str => {
   if (str === undefined) throw new Error("str is required");
-};
-
+  for (let i = 0; i < str.length; i++) {
+    if (str[i].toUpperCase() === 'C' || str[i].toUpperCase() === 'G' || str[i].toUpperCase() === 'T' || str[i].toUpperCase() === 'A') {
+      return true
+    }
+    else return false
+  }
+}
 /**
  * This function will receive a valid DNA string (see above) and should return a string of the complementary base pairs. In DNA, T always pairs with A, and C always pairs with G. So a string of "ACTG" would have a complementary DNA string of "TGAC".
  * @param {String} str
