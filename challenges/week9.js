@@ -22,13 +22,17 @@ const sumMultiples = arr => {
  */
 const isValidDNA = str => {
   if (str === undefined) throw new Error("str is required");
-  for (let i = 0; i < str.length; i++) {
-    if (str[i].toUpperCase() === 'C' || str[i].toUpperCase() === 'G' || str[i].toUpperCase() === 'T' || str[i].toUpperCase() === 'A') {
-      return true
+
+  let valid = false
+  for (let I = 0; I < str.length; I++) {
+    if (str[I].toUpperCase() === 'C' || str[I].toUpperCase() === 'G' || str[I].toUpperCase() === 'T' || str[I].toUpperCase() === 'A') {
+     valid = true
     }
-    else return false
+    else valid = false
   }
+  return valid
 }
+
 /**
  * This function will receive a valid DNA string (see above) and should return a string of the complementary base pairs. In DNA, T always pairs with A, and C always pairs with G. So a string of "ACTG" would have a complementary DNA string of "TGAC".
  * @param {String} str
@@ -45,7 +49,20 @@ const getComplementaryDNA = str => {
  */
 const isItPrime = n => {
   if (n === undefined) throw new Error("n is required");
-};
+  if (n === 1) {
+    return false;
+  }
+  else if (n === 2) {
+    return true;
+  } else {
+    for (var x = 2; x < n; x++) {
+      if (n % x === 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+}
 
 /**
  * This function should receive a number and return an array of n arrays, each filled with n items. The parameter "fill" should be used as the filler of the arrays. For example, given parameters 3 and "foo" the resulting matrix should be:
@@ -61,6 +78,15 @@ const isItPrime = n => {
 const createMatrix = (n, fill) => {
   if (n === undefined) throw new Error("n is required");
   if (fill === undefined) throw new Error("fill is required");
+  let result = []
+  for (var i = 0; i < n; i++) {
+    result.push([]);
+    result[i].push(new Array(n));
+    for (var j = 0; j < n; j++) {
+      result[i][j] = fill;
+    }
+    return result
+  }
 };
 
 /**

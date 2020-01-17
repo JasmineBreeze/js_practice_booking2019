@@ -23,13 +23,51 @@ describe("sumMultiples", () => {
 
 describe.only("isValidDNA", () => {
     test("returns true if string contains characters C, G, T or A only", () => {
+        expect(isValidDNA("CGTA")).toBe(true);
+    });
+    test("returns false if string contain characters C, G, T or A and other characters", () => {
+        expect(isValidDNA("AMTAM")).toBe(false);
+    });
+    test("still works for lower case", () => {
+        expect(isValidDNA("atta")).toBe(true);
+    });
+});
+
+describe("getComplementaryDNA", () => {
+    test("returns true if string contains characters C, G, T or A only", () => {
         expect(isValidDNA(["CGTA"])).toBe(true);
     });
     test("returns false if string contain characters C, G, T or A and other characters", () => {
-        expect(isValidDNA(["ATTAM"])).toBe(false);
+        expect(isValidDNA(["MTTAM"])).toBe(false);
     });
     test("still works for lower case", () => {
         expect(isValidDNA(["atta"])).toBe(true);
+    });
+});
+
+describe("isItPrime", () => {
+    test("returns true if number is a prime number and false if not", () => {
+        expect(isItPrime(2)).toBe(true);
+        expect(isItPrime(5)).toBe(true);
+        expect(isItPrime(7)).toBe(true);
+    });
+    test("returns false if number is a prime number and true if not", () => {
+        expect(isItPrime(4)).toBe(false);
+        expect(isItPrime(20)).toBe(false);
+        expect(isItPrime(22)).toBe(false);
+    });
+});
+
+describe("createMatrix", () => {
+    test("returns a matrix of 1 * 1 when passed 1", () => {
+        expect(createMatrix(1, "foo")).toBe([["foo"]]);
+    });
+    test("returns a matrix of 3 * 3 when passed 3", () => {
+        expect(createMatrix(3, "foo")).toBe([
+            ["foo", "foo", "foo"],
+            ["foo", "foo", "foo"],
+            ["foo", "foo", "foo"]
+            ]);
     });
 });
 
