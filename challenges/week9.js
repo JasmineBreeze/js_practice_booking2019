@@ -40,6 +40,17 @@ const isValidDNA = str => {
  */
 const getComplementaryDNA = str => {
   if (str === undefined) throw new Error("str is required");
+  let key = {
+    "A" : "T",
+    "T" : "A",
+    "C" : "G",
+    "G" : "C"
+  }
+let CompDNA = "";
+for (let i=0; i < str.length; i++) {
+  CompDNA += key[str[i]];
+}
+return CompDNA
 };
 
 /**
@@ -78,15 +89,8 @@ const isItPrime = n => {
 const createMatrix = (n, fill) => {
   if (n === undefined) throw new Error("n is required");
   if (fill === undefined) throw new Error("fill is required");
-  let result = []
-  for (var i = 0; i < n; i++) {
-    result.push([]);
-    result[i].push(new Array(n));
-    for (var j = 0; j < n; j++) {
-      result[i][j] = fill;
-    }
-    return result
-  }
+  return Array.from({length: n
+  }, () => new Array(n).fill(fill));
 };
 
 /**
