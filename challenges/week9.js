@@ -108,7 +108,22 @@ const createMatrix = (n, fill) => {
 const areWeCovered = (staff, day) => {
   if (staff === undefined) throw new Error("staff is required");
   if (day === undefined) throw new Error("day is required");
+  
+  let noOfStaff = 0;
+  staff.forEach((person) => {
+    for (let i = 0; i < person.rota.length; i++) {
+      if (person.rota[i] === day) {
+        noOfStaff++;
+      }
+    }
+  });
+  let Coveravail = false;
+  if (noOfStaff >= 3) {
+    Coveravail = true;
+  }
+  return Coveravail;
 };
+
 
 module.exports = {
   sumMultiples,
