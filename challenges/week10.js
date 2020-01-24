@@ -7,7 +7,6 @@ const sumDigits = n => {
   if (!Number.isInteger(n)) throw new Error("a number is required");
   var sum = 0;
   var string = n.toString();
-
   for (let i = 0; i < string.length; i++) {
     sum = sum + parseInt(string.substring(i, i + 1));
   }
@@ -26,6 +25,15 @@ const sumDigits = n => {
 const createRange = (start, end, step) => {
   if (start === undefined) throw new Error("start is required");
   if (end === undefined) throw new Error("end is required");
+  if (!Number.isInteger(start)) throw new Error("must be a number");
+  if (!Number.isInteger(end)) throw new Error("must be a number");
+  if (!Number.isInteger(step)) throw new Error("step is required");
+
+  var newRange = [];
+  for(let i=start; i<=end; i+=step) {
+    newRange.push(i)
+  }
+  return newRange;
 };
 
 /**
