@@ -67,7 +67,7 @@ describe("createMatrix", () => {
 });
 
 
-describe.only("areWeCovered", () => {
+describe("areWeCovered", () => {
     test("returns false if there are no staff at all", () => {
         expect(areWeCovered([], "Monday")).toBe(false);
         expect(areWeCovered([], "Tuesday")).toBe(false);
