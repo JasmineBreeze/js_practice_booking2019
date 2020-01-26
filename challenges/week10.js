@@ -71,7 +71,7 @@ const getScreentimeAlertList = (users, date) => {
 };
 
 /**
- * This function will receive a hexadecimal color code in the format #FF1133. A hexadecimal code is a number written in hexadecimal notation, i.e. base 16. If you want to know more about hexadecimal notation:
+ * This function will receive a hexadecimal color code in the format § A hexadecimal code is a number written in hexadecimal notation, i.e. base 16. If you want to know more about hexadecimal notation:
  * https://www.youtube.com/watch?v=u_atXp-NF6w
  * For colour codes, the first 2 chars (FF in this case) represent the amount of red, the next 2 chars (11) represent the amound of green, and the last 2 chars (33) represent the amount of blue.
  * Colours can also be represented in RGB format, using decimal notation.
@@ -82,7 +82,37 @@ const getScreentimeAlertList = (users, date) => {
  */
 const hexToRGB = hexStr => {
   if (hexStr === undefined) throw new Error("hexStr is required");
+  if (hexStr.length >= 8) throw new Error("Your input is too long");
+  if (hexStr.charAt(0) === '#') {
+    hexStr = hexStr.substr(1);
+}
+if ((hexStr.length < 2) || (hexStr.length > 6)) {
+    return false;
+}
+var values = hexStr.split(''),
+    r,
+    g,
+    b;
+
+if (hexStr.length === 2) {
+    r = parseInt(values[0].toString() + values[1].toString(), 16);
+    g = r;
+    b = r;
+} else if (hexStr.length === 3) {
+    r = parseInt(values[0].toString() + values[0].toString(), 16);
+    g = parseInt(values[1].toString() + values[1].toString(), 16);
+    b = parseInt(values[2].toString() + values[2].toString(), 16);
+} else if (hexStr.length === 6) {
+    r = parseInt(values[0].toString() + values[1].toString(), 16);
+    g = parseInt(values[2].toString() + values[3].toString(), 16);
+    b = parseInt(values[4].toString() + values[5].toString(), 16);
+} else {
+    return false;
+}
+return [r, g, b];
 };
+
+
 
 /**
  * This function takes a noughts and crosses board represented as an array, where an empty space is represented with null.

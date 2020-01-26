@@ -20,7 +20,7 @@ describe("sumDigits", () => {
             sumDigits("87");
         }).toThrow("a number is required");
     });
-  
+
     test("returns the sum of the digits", () => {
         expect(sumDigits(123)).toBe(6);
     });
@@ -29,9 +29,9 @@ describe("sumDigits", () => {
     });
 });
 
-describe.only("createRange", () => {
+describe("createRange", () => {
     test("creates a range of numbers as an array. It received a start, an end and a step. Step is the gap between numbers in the range", () => {
-        expect(createRange(3,11,2)).toEqual([3, 5, 7, 9, 11]);
+        expect(createRange(3, 11, 2)).toEqual([3, 5, 7, 9, 11]);
     });
     test("it throws an error if not passed numbers for the start, end and step arguments", () => {
         expect(() => {
@@ -56,5 +56,17 @@ describe.only("createRange", () => {
     });
 });
 
+describe("hexToRGB", () => {
+    test("returns RBG from a HEX sequence", () => {
+        expect(hexToRGB("#FF1133")).toEqual([255, 17, 51]);
+    });
+    test("returns an error if nothing if input is incorrect", () => {
+        expect(() => {
+            hexToRGB();
+        }).toThrow("hexStr is required")
 
-
+        expect(() => {
+            hexToRGB("#FF1145787");
+        }).toThrow("Your input is too long")
+    });
+});
